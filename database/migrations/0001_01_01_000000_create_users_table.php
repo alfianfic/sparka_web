@@ -15,6 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->integer('CO');
+            $table->float('FEV1');
+            $table->float('FEV1_max');
+            $table->float('FVC');
+            $table->float('FVC_max');
+            $table->integer('age');
+            $table->string('gender');
+            $table->integer('height');
+            $table->integer('status');
+            $table->integer('weight');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

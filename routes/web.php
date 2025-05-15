@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HistoryController;
+Route::resource('/History', HistoryController::class);
+use App\Http\Controllers\UserController;
+Route::resource('/users', UserController::class);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.home');
 });
 
 Route::get('/user', function () {
