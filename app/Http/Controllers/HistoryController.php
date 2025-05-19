@@ -4,20 +4,113 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//import model product
 use App\Models\History; 
 
 //import return type View
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
 
 class HistoryController extends Controller
 {
     public function index() : View
     {
         //get all products
-        $History = History::latest()->paginate(10);
+        $history = History::latest()->paginate(10);
 
         //render view with History
-        return view('History.index', compact('History'));
+        return view('history.index', compact('history'));
+    }
+    public function create() : View
+    {
+    return view('history.create');
+
+    }
+     public function store(Request $request): RedirectResponse
+    {
+        //validate form
+        $request->validate([
+            // 'image'         => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'CO'         => 'required',
+            'FEV1'   => 'required',
+            'FVC'         => 'required',
+            'Name'         => 'required',
+            'Date'         => 'required',
+            'Status'         => 'required',
+        ]);
+
+        //upload image
+        // $image = $request->file('image');
+        // $image->storeAs('products', $image->hashName());
+
+        //create product
+        History::create([
+            // 'image'         => $image->hashName(),
+            'CO'         => $request->CO,
+            'FEV1'   => $request->FEV1,
+            'FVC'         => $request->FVC,
+            'Name'         => $request->Name,
+            'Date'         => $request->Date,
+            'Status'         => $request->Status,
+        ]);
+
+        //redirect to index
+        return redirect()->route('history.index')->with(['success' => 'Data Berhasil Disimpan!']);
+    } 
+    public function edit(string $id): View
+    {
+        //get product by ID
+        $history = History::findOrFail($id);
+
+        //render view with product
+        return view('history.edit', compact('history'));
+    }
+    public function update(Request $request, $id): RedirectResponse
+    {
+        //validate form
+        $request->validate([
+            'CO'         => 'required',
+            'FEV1'   => 'required',
+            'FVC'         => 'required',
+            'Name'         => 'required',
+            'Date'         => 'required',
+            'Status'         => 'required',
+        ]);
+
+        //get product by ID
+        $history = History::findOrFail($id);
+
+        $history->update([
+             'CO'         => $request->CO,
+            'FEV1'   => $request->FEV1,
+            'FVC'         => $request->FVC,
+            'Name'         => $request->Name,
+            'Date'         => $request->Date,
+            'Status'         => $request->Status,
+        ]);
+
+        //redirect to index
+        return redirect()->route('history.index')->with(['success' => 'Data Berhasil Diubah!']);
+    }
+    public function destroy($id): RedirectResponse
+    {
+        //get product by ID
+        $history = History::findOrFail($id);
+
+        //delete history
+        $history->delete();
+
+        //redirect to index
+        return redirect()->route('history.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function home() : View
+    {
+        //get all products
+        $history = History::all();
+
+        //render view with History
+        return view('history.home', compact('history'));
     }
 }
+

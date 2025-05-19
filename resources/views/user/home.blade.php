@@ -8,33 +8,15 @@
         </div>
 
         <div class="cards">
+            @foreach ($users as $user)
+
             <div class="card">
-                <h2>Zaki</h2>
-                <p>Usia: 22</p>
-                <p>Gender: Male</p>
+                <h2>{{ $user->name }}</h2>
+                <p>Usia: {{ $user->age }}</p>
+                <p>Gender: {{ "laki" }}</p>
                 <a class="detail-link" href="zaki.html">Detail Pasien →</a>
             </div>
-
-            <div class="card">
-                <h2>Fauzan</h2>
-                <p>Usia: 22</p>
-                <p>Gender: Male</p>
-                <a class="detail-link" href="fauzan.html">Detail Pasien →</a>
-            </div>
-
-            <div class="card">
-                <h2>Defta Tri</h2>
-                <p>Usia: 20</p>
-                <p>Gender: Male</p>
-                <a class="detail-link" href="defta.html">Detail Pasien →</a>
-            </div>
-
-            <div class="card">
-                <h2>Ardhan Yaquttah</h2>
-                <p>Usia: 21</p>
-                <p>Gender: Laki-laki</p>
-                <a class="detail-link" href="ardhan.html">Detail Pasien →</a>
-            </div>
+            @endforeach
         </div>
     </div>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">

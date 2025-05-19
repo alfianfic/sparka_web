@@ -26,7 +26,7 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-start ms-2  bg-white my-2" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand px-4 py-3 m-0" href="#none" target="_blank">
+      <a class="navbar-brand px-4 py-3 m-0" href="/" >
         <img src="{{asset('img/SparkA.jpg')}}" class="navbar-brand-img" width="26" height="26" alt="main_logo">
         <span class="ms-1 text-sm text-dark">SparkA Website</span>
       </a>
@@ -41,7 +41,7 @@
           </a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link active bg-gradient-dark text-white" href="user">
+          <a class="nav-link active bg-gradient-dark text-white" href="/users">
             <i class="material-symbols-rounded opacity-5">table_view</i>
             <span class="nav-link-text ms-1">Pasien</span>
           </a>

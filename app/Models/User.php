@@ -22,8 +22,19 @@ class User extends Authenticatable
         'email',
         'password',
         'age',
+        'gender',
         'height',
         'weight',
+        'CO',
+        'FEV1',
+        'FEV1_max',
+        'FVC',
+        'FVC_max',
+        'status',
+
+
+
+
     ];
 
     /**

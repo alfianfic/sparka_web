@@ -1,71 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Users - SantriKoding.com</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body style="background: lightgray">
+@extends('layout.main')
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <h3 class="text-center my-4">Tutorial Laravel 12 untuk Pemula</h3>
-                    <h5 class="text-center"><a href="https://santrikoding.com">www.santrikoding.com</a></h5>
-                    <hr>
-                </div>
-                <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
-                        <a href="{{ route('users.create') }}" class="btn btn-md btn-success mb-3">ADD User</a>
+@section('content')
 
-                        @if ($users->isEmpty())
-                            <div class="alert alert-danger">
-                                Data Users belum ada.
-                            </div>
-                        @else
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">name</th>
-                                        <th scope="col">email</th>
-                                        <th scope="col">age</th>
-                                        <th scope="col">height</th>
-                                        <th scope="col">weight</th>
-                                        <th scope="col" style="width: 20%">ACTIONS</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->age }}</td>
-                                            <td>{{ $user->height }}</td>
-                                            <td>{{ $user->weight }}</td>
-                                            <td class="text-center">
-                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            {{ $users->links() }}
-                        @endif
-                        
-                    </div>
-                </div>
+<div class="col-12">
+    <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Pasien</h6>
+            </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+                <a href="{{ route('users.create') }}" class="btn btn-md btn-success mb-3">ADD User</a>
+
+                <table class="table align-items-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pasien</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Gender /
+                                Age</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Tinggi & Berat Badan</th>
+                            <th class="text-secondary opacity-7"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                        <tr>
+                            <td>
+                                <div class="d-flex px-2 py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                                        <p class="text-xs text-secondary mb-0">{{ $user->email }}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0">{{ $user->age }} th</p>
+                                <p class="text-xs font-weight-bold mb-0">{{ $user->gender }}</p>
+                            </td>
+                            <td class="align-middle text-center">
+                                <p class="text-xs font-weight-bold mb-0">{{ $user->height }} cm</p>
+                                <p class="text-xs font-weight-bold mb-0">{{ $user->weight }} kg</p>
+                            </td>
+                            
+                            <td class="align-middle">
+                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                @csrf
+                                <a href="{{ route('users.edit', $user->id) }}" class="text-secondary font-weight-bold text-xs btn-primary"
+                                    data-toggle="tooltip" data-original-title="Edit user">
+                                    Edit
+                                </a>
+                                |
+                                <a href="history" class="text-secondary font-weight-bold text-xs"
+                                    data-toggle="tooltip" data-original-title="Riwayat user">
+                                    Riwayat
+                                </a>
+                                |
+                                @method('DELETE')
+                                <button type="submit" class="text-secondary font-weight-bold text-xs"
+                                    data-toggle="tooltip">
+                                    Hapus
+                                </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src
+@endsection

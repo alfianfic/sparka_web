@@ -34,8 +34,10 @@ class UserController extends Controller
             'name'         => 'required|min:5',
             'email'   => 'required|min:10',
             'age'         => 'required|numeric',
+            'gender'         => 'required|string',
             'height'         => 'required|numeric',
             'weight'         => 'required|numeric',
+            'password'         => 'required|string',
         ]);
 
         //upload image
@@ -48,12 +50,87 @@ class UserController extends Controller
             'name'         => $request->name,
             'email'   => $request->email,
             'age'         => $request->age,
+            'gender'         => $request->gender,
             'height'         => $request->height,
             'weight'         => $request->weight,
+            'password'         => $request->password,
         ]);
 
         //redirect to index
         return redirect()->route('users.index')->with(['success' => 'Data Berhasil Disimpan!']);
+    } 
+    public function edit(string $id): View
+    {
+        //get product by ID
+        $user = User::findOrFail($id);
+
+        //render view with product
+        return view('user.edit', compact('user'));
+    }
+    public function update(Request $request, $id): RedirectResponse
+    {
+        //validate form
+        $request->validate([
+            'name'         => 'required|min:5',
+            'email'   => 'required|min:10',
+            'age'         => 'required|numeric',
+            'gender'         => 'required|string',
+            'height'         => 'required|numeric',
+            'weight'         => 'required|numeric',
+            'CO'         => 'required|numeric',
+            'FEV1'         => 'required|numeric',
+            'FEV1_max'         => 'required|numeric',
+            'FVC'         => 'required|numeric',
+            'FVC_max'         => 'required|numeric',
+            'status'         => 'required|numeric',
+            
+        ]);
+
+        //get product by ID
+        $user = User::findOrFail($id);
+
+        $user->update([
+            'name'         => $request->name,
+            'email'   => $request->email,
+            'age'         => $request->age,
+             'gender'         => $request->gender,
+            'height'         => $request->height,
+            'weight'         => $request->weight,
+            'CO'         => $request->CO,
+            'FEV1'         => $request->FEV1,
+            'FEV1_max'         => $request->FEV1_max,
+            'FVC'         => $request->FVC,
+            'FVC_max'         => $request->FVC_max,
+            'status'         => $request->status,
+        ]);
+
+        if(isset($password)){
+            $user->update([
+                'password'->$password,
+            ]);
+        }
+        //redirect to index
+        return redirect()->route('users.index')->with(['success' => 'Data Berhasil Diubah!']);
+    }
+    public function destroy($id): RedirectResponse
+    {
+        //get product by ID
+        $user = User::findOrFail($id);
+
+        //delete user
+        $user->delete();
+
+        //redirect to index
+        return redirect()->route('users.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function home() : View
+    {
+        //get all products
+        $users = User::all();
+
+        //render view with User
+        return view('user.home', compact('users'));
     }
 }
 

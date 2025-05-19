@@ -20,5 +20,6 @@ class History extends Model
         'FVC',
         'Name',
         'Date',
+        'Status',
     ];
 }

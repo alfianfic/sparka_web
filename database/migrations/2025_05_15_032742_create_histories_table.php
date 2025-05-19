@@ -18,6 +18,7 @@ return new class extends Migration
         $table->float('FVC');
         $table->string('Name');
         $table->date('Date');
+        $table->string('Status');
         $table->timestamps();
         });
     }
