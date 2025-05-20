@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class History extends Model
 {
@@ -18,8 +19,13 @@ class History extends Model
         'CO',
         'FEV1',
         'FVC',
-        'Name',
+        'user_id',
         'Date',
         'Status',
     ];
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }

@@ -13,8 +13,8 @@
             <div class="card">
                 <h2>{{ $user->name }}</h2>
                 <p>Usia: {{ $user->age }}</p>
-                <p>Gender: {{ "laki" }}</p>
-                <a class="detail-link" href="zaki.html">Detail Pasien →</a>
+                <p>Gender: {{ $user->gender }}</p>
+                <a class="detail-link" href="/users/{{$user->id}}">Detail Pasien →</a>
             </div>
             @endforeach
         </div>

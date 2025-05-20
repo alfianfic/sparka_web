@@ -47,12 +47,17 @@
                             <td class="align-middle">
                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('users.destroy', $user->id) }}" method="POST">
                                 @csrf
+                                 <a href="{{ route('users.show', $user->id) }}" class="text-secondary font-weight-bold text-xs btn-primary"
+                                    data-toggle="tooltip" data-original-title="Show user">
+                                    show
+                                     |
+                                </a>
                                 <a href="{{ route('users.edit', $user->id) }}" class="text-secondary font-weight-bold text-xs btn-primary"
                                     data-toggle="tooltip" data-original-title="Edit user">
                                     Edit
                                 </a>
                                 |
-                                <a href="history" class="text-secondary font-weight-bold text-xs"
+                                <a href="history/{{ $user->id }}" class="text-secondary font-weight-bold text-xs"
                                     data-toggle="tooltip" data-original-title="Riwayat user">
                                     Riwayat
                                 </a>

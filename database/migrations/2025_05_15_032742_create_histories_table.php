@@ -16,7 +16,9 @@ return new class extends Migration
         $table->integer('CO');
         $table->float('FEV1');
         $table->float('FVC');
-        $table->string('Name');
+       $table->foreignId('user_id') // nama kolom relasi
+             ->constrained('users') // referensi ke tabel users
+             ->onDelete('cascade'); 
         $table->date('Date');
         $table->string('Status');
         $table->timestamps();

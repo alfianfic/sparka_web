@@ -51,15 +51,22 @@
                             </div>         
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">Name</label>
-                                <input type="text" class="form-control @error('Name') is-invalid @enderror" Name="Name" value="{{ old('Name') }}" placeholder="Isi Kolom">
-                            
-                                <!-- error message untuk title -->
-                                @error('Name')
+                                <select name="user_id" class="form-control @error('user_id') is-invalid @enderror">
+                                    <option value="">-- Pilih User --</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
+                                            {{ $user->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                @error('user_id')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>     
+                            </div>
+     
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">date</label>
                                 <input type="date" class="form-control @error('date') is-invalid @enderror" name="Date" value="{{ old('date') }}" placeholder="Isi Kolom">
@@ -73,10 +80,17 @@
                             </div>    
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">Status</label>
-                                <input type="text" class="form-control @error('Status') is-invalid @enderror" name="Status" value="{{ old('Status') }}" placeholder="Isi Kolom">
-                            
-                                <!-- error message untuk title -->
-                                @error('name')
+                                <select name="Status" class="form-control @error('Status     ') is-invalid @enderror">
+                                    <option value="">-- Pilih Status --</option>
+                                        <option value="Aman">
+                                            Aman
+                                        </option>
+                                        <option value="Gejala PPOK Ringan">
+                                            Gejala PPOK Ringan
+                                        </option>
+                                </select>
+
+                                @error('Status   ')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>

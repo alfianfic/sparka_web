@@ -9,9 +9,9 @@ Route::resource('/users', UserController::class);
 // Route::get('/', function () {
 //     return view('users');
 // });
-// Route::get('/user', function () {
-//     return view('admin.user');
-// });
+Route::get('/show', function () {
+    return view('user.show');
+});
 Route::resource('/history', HistoryController::class);
 Route::get('/riwayat', function () {
     return view('admin.riwayat');

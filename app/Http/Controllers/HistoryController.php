@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User; 
 use App\Models\History; 
 
 //import return type View
@@ -16,14 +17,25 @@ class HistoryController extends Controller
     public function index() : View
     {
         //get all products
-        $history = History::latest()->paginate(10);
+        $history = History::latest()->with('user')->paginate(10);
 
         //render view with History
         return view('history.index', compact('history'));
     }
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+
+        // Ambil semua history milik user tersebut
+        $history = History::where('user_id', $id)->with('user')->get();
+
+        // Tampilkan ke view
+        return view('history.show', compact('history'));
+    }
     public function create() : View
     {
-    return view('history.create');
+        $users = User::all(); // atau bisa juga ->pluck('name', 'id') jika ingin langsung dipakai
+    return view('history.create', compact('users'));
 
     }
      public function store(Request $request): RedirectResponse
@@ -34,7 +46,7 @@ class HistoryController extends Controller
             'CO'         => 'required',
             'FEV1'   => 'required',
             'FVC'         => 'required',
-            'Name'         => 'required',
+            'user_id'         => 'required',
             'Date'         => 'required',
             'Status'         => 'required',
         ]);
@@ -49,7 +61,7 @@ class HistoryController extends Controller
             'CO'         => $request->CO,
             'FEV1'   => $request->FEV1,
             'FVC'         => $request->FVC,
-            'Name'         => $request->Name,
+            'user_id'         => $request->user_id,
             'Date'         => $request->Date,
             'Status'         => $request->Status,
         ]);
