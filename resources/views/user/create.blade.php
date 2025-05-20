@@ -82,9 +82,9 @@
                                     </div>
                                 @enderror
                             </div>   
-                            <div class="form-group mb-3">
+                            <!-- <div class="form-group mb-3">
                                 <label class="font-weight-bold">password</label>
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="Isi Kolom">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="Isi Kolom"> -->
                             
                                 <!-- error messpassword untuk title -->
                                 @error('password')
@@ -92,7 +92,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>              
+                            <!-- </div>               -->
 
                            
                             <button type="submit" class="btn btn-md btn-primary me-3">SAVE</button>

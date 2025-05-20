@@ -149,17 +149,17 @@
                                     </div>
                                 @enderror
                             </div>  
-                            <div class="form-group mb-3">
+                            <!-- <div class="form-group mb-3">
                                 <label class="font-weight-bold">password</label>
                                 <input type="text" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Isi Kolom">
-                            
+                             -->
                                 <!-- error messpassword untuk title -->
                                 @error('password')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>                          
+                            <!-- </div>                           -->
 
                             <button type="submit" class="btn btn-md btn-primary me-3">UPDATE</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
