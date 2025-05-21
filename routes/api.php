@@ -1,10 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-//import controller ProductController
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+use App\Models\User; 
 use App\Http\Controllers\Api\HistoryController;
+use App\Http\Controllers\Api\AuthController;
 
-//products
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/testing', [HistoryController::class,'store']);
-Route::apiResource('/history', HistoryController::class);
+Route::
+middleware('auth:sanctum')->
+apiResource('/history', HistoryController::class);
