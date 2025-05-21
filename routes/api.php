@@ -9,7 +9,11 @@ use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\AuthController;
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/profile', [AuthController::class, 'profile']);
+});
 Route::get('/testing', [HistoryController::class,'store']);
 Route::
-middleware('auth:sanctum')->
-apiResource('/history', HistoryController::class);
+    middleware('auth:sanctum')->
+    apiResource('/history', HistoryController::class);

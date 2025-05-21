@@ -10,7 +10,6 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        // Validasi manual untuk menghindari redirect
         $credentials = $request->only('email', 'password');
 
         $validator = validator($credentials, [
@@ -22,15 +21,14 @@ class AuthController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        // Cek kredensial
         if (!Auth::attempt($credentials)) {
-            throw ValidationException::withMessages([
-                'email' => ['Email atau password salah.'],
-            ]);
+            return response()->json(['message' => 'Email atau password salah'], 401);
         }
 
+        // Penting: Ambil user dari Auth setelah berhasil login
+        $user = Auth::user();
+
         // Buat token
-        $user = $request->user();
         $token = $user->createToken('api_token')->plainTextToken;
 
         return response()->json([
@@ -38,4 +36,21 @@ class AuthController extends Controller
             'user' => $user,
         ]);
     }
+    public function logout(Request $request)
+    {
+        // Hapus token aktif saat ini
+        $request->user()->currentAccessToken()->delete(); // token aktif
+        // $request->user()->tokens()->delete(); // semua token
+
+        return response()->json(['message' => 'Logout berhasil']);
+    }
+
+    public function profile(Request $request)
+    {
+        dd($request->user());
+        return response()->json([
+            'user' => $request->user(),
+        ]);
+    }
+
 }
