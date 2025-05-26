@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\User; 
+use App\Models\User;
 
 //import return type View
 use Illuminate\View\View;
@@ -41,7 +41,6 @@ class UserController extends Controller
             'gender'         => 'required|string',
             'height'         => 'required|numeric',
             'weight'         => 'required|numeric',
-            'password'         => 'required|string',
         ]);
 
         //upload image
@@ -57,12 +56,11 @@ class UserController extends Controller
             'gender'         => $request->gender,
             'height'         => $request->height,
             'weight'         => $request->weight,
-            'password'         => $request->password,
         ]);
 
         //redirect to index
         return redirect()->route('users.index')->with(['success' => 'Data Berhasil Disimpan!']);
-    } 
+    }
     public function edit(string $id): View
     {
         //get product by ID
@@ -87,7 +85,7 @@ class UserController extends Controller
             'FVC'         => 'required|numeric',
             'FVC_max'         => 'required|numeric',
             'status'         => 'required|numeric',
-            
+            'password'      => 'required'
         ]);
 
         //get product by ID
@@ -106,11 +104,12 @@ class UserController extends Controller
             'FVC'         => $request->FVC,
             'FVC_max'         => $request->FVC_max,
             'status'         => $request->status,
+            'password'         => $request->password,
         ]);
 
         if(isset($password)){
             $user->update([
-                'password'->$password,
+                'password'=>$password,
             ]);
         }
         //redirect to index

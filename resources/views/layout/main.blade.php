@@ -53,6 +53,50 @@
         <a class="btn btn-outline-dark mt-4 w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree" type="button">Documentation</a>
         <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
       </div> -->
+    <div class="form-group mb-3">
+            @guest
+                <form action="/login" method="POST">
+                    @csrf
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <label for="email" style="font-weight: bold;">Email</label>
+                    <div align='center'>
+                        <input type="text" value="{{ old('email') }}" placeholder="Isi Kolom" class="form-control @error('email') is-invalid @enderror" name="email" id="email" style="width:97%; border: solid 1pt black; margin-bottom:10pt;">
+                        <!-- error message untuk title -->
+                                    @error('email')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                    </div>
+                    <label for="password" style="font-weight: bold;">Password</label>
+                    <div align='center'>
+                        <!-- error message untuk title -->
+                                    @error('password')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                        <input type="password" value="{{ old('password') }}" placeholder="Isi Kolom" class="form-control @error('password') is-invalid @enderror" name="password" id="password" style="width:97%; border: solid 1pt black; margin-bottom:10pt;">
+                    </div>
+                    <div align='center'>
+                        <button type="submit" class="btn bg-gradient-dark">Login</button>
+                    </div>
+                </form>
+            @endguest
+            @auth
+                <form action="/logout" method="POST">
+                    @csrf
+                    <div align='center'>
+                        <p class="font-weight-bold">Login as {{Auth::user()->name}}</p>
+                        <button type="submit" class="btn bg-gradient-primary">Logout</button>
+                    </div>
+                </form>
+            @endauth
+      </div>
     </div>
   </aside>
 

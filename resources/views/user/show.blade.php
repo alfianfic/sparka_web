@@ -62,7 +62,8 @@
     }
 
     .right-panel {
-      width: 70%;
+      width: 50%;
+      margin-left: 25%;
     }
 
     .header-card {
@@ -98,8 +99,8 @@
     }
 
     .info-box div {
-      flex: 1;
-      min-width: 180px;
+      /* flex: 1; */
+      min-width: 40%;
       font-weight: 600;
     }
 
@@ -113,7 +114,7 @@
       background-color: #ffffff;
       border-radius: 10px;
       padding: 1rem;
-      width: 96%;
+      width: 100%;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -171,7 +172,7 @@
   </style>
 
   <div class="overlay">
-    
+
 
     <div class="right-panel">
       <div class="header-card">
@@ -179,8 +180,7 @@
       </div>
 
       <div class="info-box">
-        <div>Nama : {{$user->name}}</div>
-        <div></div>
+        <div style="width:100%">Nama : {{$user->name}}</div>
         <div>Usia: {{$user->age}}</div>
         <div>Tinggi badan: {{$user->height}} cm</div>
         <div>Gender: {{$user->gender}}</div>
