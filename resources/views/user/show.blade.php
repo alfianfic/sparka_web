@@ -178,6 +178,7 @@
       <div class="header-card">
         <div class="section-title">DATA KESEHATAN PASIEN </div>
       </div>
+      <a href="{{ route('history.show', $user->id) }}" class="btn btn-md btn-success mb-3" style="display: flex;">History</a>
 
       <div class="info-box">
         <div style="width:100%">Nama : {{$user->name}}</div>

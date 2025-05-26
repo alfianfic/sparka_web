@@ -15,18 +15,21 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('CO')->nullable();
-            $table->float('FEV1')->nullable();
-            $table->float('FEV1_max')->nullable();
-            $table->float('FVC')->nullable();
-            $table->float('FVC_max')->nullable();
+            $table->integer('CO')->default(0);
+            $table->float('FEV1')->default(0);
+            $table->float('FEV1_max')->default(2.2);
+            $table->float('FVC')->default(0);
+            $table->float('FVC_max')->default(2.5);
             $table->integer('age');
-            $table->string('gender')->nullable();
+            $table->string('gender');
             $table->integer('height');
             $table->integer('weight');
-            $table->integer('status')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamp('email_verified_at')->nullable();
+            
+            $table->string('role')->default('user');
             $table->string('password')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

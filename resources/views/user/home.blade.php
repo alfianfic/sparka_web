@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container col-12">
+        @auth
         <div class="header">
             <h1>Data Pasien</h1>
             <img src="{{asset('gambar/gambardokter.png')}}" alt="Dokter">
@@ -18,6 +19,15 @@
             </div>
             @endforeach
         </div>
+        @endauth
+        @guest
+        <div style="height:150px"></div>
+        <div class="header">
+            <h1>Selamat Datang</h1>
+            <img src="{{asset('gambar/gambardokter.png')}}" alt="Dokter">
+        </div>
+        <div style="height:150px"></div>
+        @endguest
     </div>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>

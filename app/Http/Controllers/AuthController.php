@@ -16,6 +16,10 @@ class AuthController extends Controller
 
         if(Auth::attempt(($cred), $request->filled('remember'))){
             $request->session()->regenerate();
+            if(Auth::user()->role=='user'){
+                $id=Auth::user()->id;
+                return redirect("/users/$id");
+            }
             return redirect()->intended(route('home'));
         }
 
