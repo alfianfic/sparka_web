@@ -35,5 +35,26 @@ class UserSeeder extends Seeder
                 'updated_at' => now(),
             ]);
         }
+
+        User::create([
+                'name' => "defta",
+                'email' => "defta123@gmail.com",
+                'CO' => $faker->numberBetween(0, 10), // Contoh: Karbon Monoksida
+                'FEV1' => $faker->randomFloat(2, 1.0, 4.0),
+                'FEV1_max' => $faker->randomFloat(2, 2.0, 5.0),
+                'FVC' => $faker->randomFloat(2, 2.0, 6.0),
+                'FVC_max' => $faker->randomFloat(2, 3.0, 7.0),
+                'age' => $faker->numberBetween(18, 70),
+                'gender' => $faker->randomElement(['male', 'female']),
+                'height' => $faker->numberBetween(150, 190),
+                'weight' => $faker->numberBetween(45, 100),
+                'status' => $faker->numberBetween(1, 4),
+                'email_verified_at' => now(),
+                'password' => Hash::make('1'), // default password
+                'role' => 'admin',
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
     }
 }

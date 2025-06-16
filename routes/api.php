@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-use App\Models\User; 
+use App\Models\User;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FingerprintController;
