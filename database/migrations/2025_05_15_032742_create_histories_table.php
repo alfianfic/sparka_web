@@ -19,7 +19,7 @@ return new class extends Migration
        $table->foreignId('user_id') // nama kolom relasi
              ->constrained('users') // referensi ke tabel users
              ->onDelete('cascade'); 
-        $table->date('Date');
+        $table->timestamp('Date')->nullable();;
         $table->string('Status');
         $table->timestamps();
         });
