@@ -140,7 +140,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">status</label>
-                                <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status',$user->status) }}" placeholder="Isi Kolom">
+                                <input type="number" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status',$user->status) }}" placeholder="Isi Kolom">
 
                                 <!-- error messstatus untuk title -->
                                 @error('status')
@@ -155,6 +155,19 @@
 
                                 <!-- error messpassword untuk title -->
                                 @error('password')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">id_finger</label>
+                                <input type="number" class="form-control @error('id_finger') is-invalid @enderror" name="id_finger"                                 
+                                value="{{isset($user->fingerprint) ? old('status',$user->fingerprint->id_fingerprint) : ''}}" 
+                                placeholder="Isi Kolom">
+
+                                <!-- error messpassword untuk title -->
+                                @error('id_finger')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>

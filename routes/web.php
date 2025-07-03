@@ -27,6 +27,10 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
 
 Route::get('/user/user-data/{id}', [UserController::class, 'getProfilUpdate'])
     ->middleware(['auth', 'role:user,admin']);
+Route::get('/history/{history}', [HistoryController::class, 'show'])->name('history.show')
+->middleware(['auth', 'role:user,admin']);
+
+Route::get('/history/data/{history}', [HistoryController::class, 'showGet']);
 
 Route::get('/history/{history}', [HistoryController::class, 'show'])->name('history.show')
 ->middleware(['auth', 'role:user,admin']);

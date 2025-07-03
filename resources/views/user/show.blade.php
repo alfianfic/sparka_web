@@ -105,7 +105,8 @@
         Usia: {{$user->age}}<br>
         Tinggi Badan: {{$user->height}} cm<br>
         Berat Badan: {{$user->weight}} kg<br>
-        Gender: {{$user->gender}}
+        Gender: {{$user->gender}}<br>
+        email: {{$user->email}}
       </div>
 
       <div class="status-box">
@@ -113,7 +114,7 @@
       </div>
 
       <div class="notif-box">
-        Notifikasi: Kondisi Paru-paru Baik, Terapkan Gaya Hidup Sehat!
+        Notifikasi: Kondisi Paru-paru Baik, Jagalah Kesehatan Paru Anda!
       </div>
     </div>
 
