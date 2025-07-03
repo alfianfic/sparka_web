@@ -5,6 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\AuthController;
 
+use App\Models\User;
+
+
 // Route::get('/login', [AuthController::class, 'index']);
 Route::get('/', [UserController::class, 'home'])->name('home');
 Route::post('/login', [AuthController::class, 'login']);
@@ -20,6 +23,9 @@ Route::resource('/history', HistoryController::class)
 
 // Akses User (hanya show)
 Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
+    ->middleware(['auth', 'role:user,admin']);
+
+Route::get('/user/user-data/{id}', [UserController::class, 'getProfilUpdate'])
     ->middleware(['auth', 'role:user,admin']);
 
 Route::get('/history/{history}', [HistoryController::class, 'show'])->name('history.show')

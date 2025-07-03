@@ -123,19 +123,19 @@
         <div class="data-item">
 
           <label>FEV1</label>
-          <div class="data-value">{{$user->FEV1}} lt/m</div>
+          <div class="data-value" id="FEV1">{{$user->FEV1}} lt/m</div>
         </div>
         <div class="data-item">
           <label>FVC</label>
-          <div class="data-value">{{$user->FVC}} lt/m</div>
+          <div class="data-value" id="FVC"> {{$user->FVC}} lt/m</div>
         </div>
         <div class="data-item">
           <label>Kadar CO</label>
-          <div class="data-value">{{$user->CO}} ppm</div>
+          <div class="data-value" id="CO">{{$user->CO}} ppm</div>
         </div>
         <div class="data-item">
           <label>FEV1/FVC</label>
-          <div class="data-value">
+          <div class="data-value" id="FEV1FVC">
             @if ($user->FVC > 0)
               {{ number_format(($user->FEV1 / $user->FVC) * 100, 2) }}%
             @else
@@ -147,4 +147,30 @@
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function fetchData() {
+    $.ajax({
+      url: '/user/user-data/{{$user->id}}',
+      method: 'GET',
+      success: function(data) {
+        $('#FEV1').text(data.FEV1 + ' lt/m');
+        $('#FVC').text(data.FVC + ' lt/m');
+        $('#CO').text(data.CO + ' ppm');
+        $('#FEV1FVC').text(data.FEV1_FVC + '%');
+      },
+      error: function() {
+        console.error('Gagal mengambil data');
+      }
+    });
+  }
+
+  // Jalankan setiap 2 detik
+  setInterval(fetchData, 1000);
+  console.log(CO);
+  // Jalankan pertama kali saat halaman dimuat
+  // $(document).ready(fetchData);
+</script>
+
 @endsection

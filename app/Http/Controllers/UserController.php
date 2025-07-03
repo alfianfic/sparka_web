@@ -25,6 +25,22 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         return view('user.show',compact('user'));
     }
+    public function getProfilUpdate($id) {
+    // $user = User::findOrFail($id);
+    $user = User::where('id', $id)->first();
+if (!$user) {
+
+    \Log::error("User dengan ID $id tidak ditemukan.");
+    return response()->json(['error' => 'User tidak ditemukan'], 404);
+}
+
+    return response()->json([
+        'FEV1' => $user->FEV1,
+        'FVC' => $user->FVC,
+        'CO' => $user->CO,
+        'FEV1_FVC' => $user->FVC > 0 ? number_format(($user->FEV1 / $user->FVC) * 100, 2) : '-'
+    ]);
+    }
     public function create() : View
     {
     return view('user.create');
