@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\User; 
-use App\Models\History; 
+use App\Models\User;
+use App\Models\History;
 
 //import return type View
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-
+use Yajra\DataTables\Facades\DataTables;
 
 class HistoryController extends Controller
 {
@@ -30,7 +30,12 @@ class HistoryController extends Controller
         $history = History::where('user_id', $id)->with('user')->get();
 
         // Tampilkan ke view
-        return view('history.show', compact('history'));
+        return view('history.show', compact('history','id'));
+    }
+    public function showGet($id)
+    {
+        $historyyy = History::where('user_id', $id)->with('user')->get();
+        return response()->json($historyyy);
     }
     public function create() : View
     {
@@ -68,7 +73,7 @@ class HistoryController extends Controller
 
         //redirect to index
         return redirect()->route('history.index')->with(['success' => 'Data Berhasil Disimpan!']);
-    } 
+    }
     public function edit(string $id): View
     {
         //get product by ID

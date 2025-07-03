@@ -23,7 +23,9 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')
     ->middleware(['auth', 'role:user,admin']);
 
 Route::get('/history/{history}', [HistoryController::class, 'show'])->name('history.show')
-    ->middleware(['auth', 'role:user,admin']);
+->middleware(['auth', 'role:user,admin']);
+
+Route::get('/history/data/{history}', [HistoryController::class, 'showGet']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
