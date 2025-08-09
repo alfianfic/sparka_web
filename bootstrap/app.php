@@ -18,6 +18,11 @@ return Application::configure(basePath: dirname(__DIR__))
             EnsureFrontendRequestsAreStateful::class,
             \Illuminate\Routing\Middleware\ThrottleRequests::class,
         ]);
+        $middleware->alias([
+            'auth'=> \App\Http\Middleware\Authenticate::class,
+            'role' => \App\Http\Middleware\RoleMiddleware::class,
+
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

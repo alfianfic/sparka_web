@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container col-12">
+        @auth
         <div class="header">
             <h1>Data Pasien</h1>
             <img src="{{asset('gambar/gambardokter.png')}}" alt="Dokter">
@@ -18,6 +19,68 @@
             </div>
             @endforeach
         </div>
+        @endauth
+        @guest
+        <div style="height:50px"></div>
+        <div class="header">
+            <h1>Selamat Datang</h1>
+            <img src="{{asset('gambar/gambardokter.png')}}" alt="Dokter">
+        </div>
+        <div style="height:50px"></div>
+        <!-- <div class="header"> -->
+        <div>
+             <div class="form-group mb-3">
+            @guest
+                <form action="/login" method="POST">
+                    @csrf
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <label for="email" style="font-weight: bold; color: black; ">Email</label>
+                    <div align='center'>
+                        <input type="text" value="{{ old('email') }}" placeholder="Isi Kolom" class="form-control @error('email') is-invalid @enderror" name="email" id="email" style="width:97%; border: solid 1pt black; margin-bottom:10pt; background: white;">
+                        <!-- error message untuk title -->
+                                    @error('email')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                    </div>
+                    <label for="password" style="font-weight: bold; color: black;">Password</label>
+                    <div align='center'>
+                        <!-- error message untuk title -->
+                                    @error('password')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                        <input type="password" value="{{ old('password') }}" placeholder="Isi Kolom" class="form-control @error('password') is-invalid @enderror" name="password" id="password" style="width:97%; border: solid 1pt black; margin-bottom:10pt; background: white;">
+                    </div>
+                    <div align='center'>
+                        <button type="submit" class="btn bg-gradient-dark">Login</button>
+                    </div>
+                </form>
+            @endguest
+            
+      </div>
+    </div>
+        </div>
+        @endguest
+        <div style="height:70px"></div>
+        <div style="">
+            @auth
+                <form action="/logout" method="POST">
+                    @csrf
+                    <div align='center'>
+                        <p class="font-weight-bold">Login as {{Auth::user()->name}}</p>
+                        <button type="submit" class="btn bg-gradient-primary">Logout</button>
+                    </div>
+                </form>
+            @endauth
+        </div>
+
     </div>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>

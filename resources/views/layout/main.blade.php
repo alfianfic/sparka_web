@@ -53,7 +53,7 @@
         <a class="btn btn-outline-dark mt-4 w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree" type="button">Documentation</a>
         <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
       </div> -->
-    </div>
+   
   </aside>
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">

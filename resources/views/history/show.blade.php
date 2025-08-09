@@ -1,6 +1,9 @@
 @extends('layout.main')
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
 <div class="col-12">
     <div class="card my-4">
@@ -13,7 +16,7 @@
             <div class="table-responsive p-0">
                 <a href="{{ route('history.create') }}" class="btn btn-md btn-success mb-3">ADD History</a>
 
-                <table class="table align-items-center mb-0">
+                <table id="history-table" class="table align-items-center mb-0">
                     <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CO</th>
@@ -29,42 +32,39 @@
 
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach ($history as $history)
-                        <tr>
-                            <td>
-                                <div class="d-flex px-2 py-1">
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{ $history->CO }}</h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="text-xs text-secondary mb-0">{{ $history->FEV1 }}</p>
-                                
-                            </td>
-                            <td>
-                                <p class="text-xs font-weight-bold mb-0">{{ $history->FVC }} </p>
-                                
-                            </td>
-                            <td class="align-middle text-center">
-                                <p class="text-xs font-weight-bold mb-0">{{ $history->user->name }} </p>
-                                
-                            </td>
-                            <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$history->Date}}</span>
-                            </td>
-                            <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$history->Status}}</span>
-                            </td>
-                            
-                        </tr>
-                        @endforeach
-                    </tbody>
+                    <tbody></tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var table = $('#history-table').DataTable({
+            processing: false,
+            serverSide: false, // Ubah ke true jika ingin server-side processing
+            ajax: {
+                url: '/history/data/{{ $id }}', // Ganti dengan URL endpoint Anda
+                type: 'GET',
+                dataSrc: '' // Jika data langsung array, kosongkan dataSrc
+            },
+            columns: [
+                { data: 'CO' },
+                { data: 'FEV1' },
+                { data: 'FVC' },
+                { data: 'user.name' }, // Mengambil nama dari relasi user
+                { data: 'Date' },
+                { data: 'Status' }
+            ]
+        });
+
+        // Refresh tabel setiap 10 detik
+        setInterval(function() {
+            table.ajax.reload(null, false); // Reload tanpa reset paging
+        }, 1000);
+    });
+</script>
+
 
 @endsection

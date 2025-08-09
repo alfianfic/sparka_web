@@ -65,5 +65,9 @@ class User extends Authenticatable
 {
     return $this->hasMany(History::class);
 }
+    public function fingerprint()
+{
+    return $this->hasOne(Fingerprint::class, 'user_id', 'id');
+}
 
 }

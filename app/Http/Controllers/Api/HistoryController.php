@@ -31,15 +31,9 @@ class HistoryController extends Controller
         $history = History::where('user_id', $id)->with('user')->get();
 
         // Tampilkan ke view
-        return view('history.show', compact('history'));
-    }
-    public function create() 
-    {
-        $users = User::all(); // atau bisa juga ->pluck('name', 'id') jika ingin langsung dipakai
-    return view('history.create', compact('users'));
-
-    }
-     public function store(Request $request)
+        return new HistoryResource(true, 'List Data History', $history);
+    }  
+    public function store(Request $request)
     {
         //validate form
         $validator = Validator::make($request->all(), [
@@ -73,14 +67,6 @@ class HistoryController extends Controller
         //redirect to index
         return new HistoryResource(true, 'Data History Berhasil Ditambahkan!', $history);
     } 
-    public function edit(string $id)
-    {
-        //get product by ID
-        $history = History::findOrFail($id);
-
-        //render view with product
-        return view('history.edit', compact('history'));
-    }
     public function update(Request $request, $id)
     {
         //validate form
@@ -106,7 +92,7 @@ class HistoryController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('history.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return new HistoryResource(true, 'Update Berhasil', $history);
     }
     public function destroy($id)
     {
@@ -117,16 +103,31 @@ class HistoryController extends Controller
         $history->delete();
 
         //redirect to index
-        return redirect()->route('history.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return new HistoryResource(true, 'Delete History Berhasil', $history);
     }
 
-    public function home() 
-    {
-        //get all products
-        $history = History::all();
+    // public function create() 
+    // {
+    //     $users = User::all(); // atau bisa juga ->pluck('name', 'id') jika ingin langsung dipakai
+    //     return view('history.create', compact('users'));
 
-        //render view with History
-        return view('history.home', compact('history'));
-    }
+    // }
+
+    // public function edit(string $id)
+    // {
+    //     //get product by ID
+    //     $history = History::findOrFail($id);
+
+    //     //render view with product
+    //     return new HistoryResource(true, 'List Data History', $history);
+    // }
+    // public function home() 
+    // {
+    //     //get all products
+    //     $history = History::all();
+
+    //     //render view with History
+    //     return view('history.home', compact('history'));
+    // }
 }
 
