@@ -14,9 +14,9 @@
         </div>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
-                <a href="{{ route('history.create') }}" class="btn btn-md btn-success mb-3">ADD History</a>
+                <a href="{{ route('history.create') }}" class="btn btn-md btn-success mb-3">Add History</a>
 
-                <table id="history-table" class="table align-items-center mb-0">
+                <table id="history-table" class="table align-items-center mb-0 box">
                     <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CO</th>
@@ -65,6 +65,69 @@
         }, 1000);
     });
 </script>
+ <footer class="footer py-4  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-lg-start font-footer">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with
+                  <!-- <i class="fa fa-heart"></i> by -->
+                <a href="https://www.creative-tim.com" class="font-weight-bold ; font-footer" target="_blank">SparkA Tim</a>
+                | Your Breath Our Priority.
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com" class="nav-link font-footer" target="_blank">Creative Tim</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/presentation" class="nav-link font-footer " target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/blog" class="nav-link font-footer " target="_blank">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 font-footer" target="_blank">License</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
 
 
+<style>
+    body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #013064, #ff7f7e);
+    background-attachment: fixed;
+    color: #0B3D91;
+  }
+
+   .font-footer{
+    color: #f9f9f9;
+    font-weight: bold;
+  }
+
+  .box{
+    max-width: 1200px;
+  }
+
+.dataTables_filter {
+    padding-right: 30px !important; 
+}
+
+.dataTables_filter input {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+  
+</style>
 @endsection

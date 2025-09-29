@@ -1,4 +1,4 @@
-@extends('layout.main')
+`@extends('layout.main')
 
 @section('content')
     <div class="container col-12">
@@ -13,8 +13,8 @@
 
             <div class="card">
                 <h2>{{ $user->name }}</h2>
-                <p>Usia: {{ $user->age }}</p>
-                <p>Gender: {{ $user->gender }}</p>
+                <p>Usia :  {{ $user->age }}</p>
+                <p>Gender :  {{ $user->gender }}</p>
                 <a class="detail-link" href="/users/{{$user->id}}">Detail Pasien →</a>
             </div>
             @endforeach
@@ -40,7 +40,7 @@
                     </ul>
                     <label for="email" style="font-weight: bold; color: black; ">Email</label>
                     <div align='center'>
-                        <input type="text" value="{{ old('email') }}" placeholder="Isi Kolom" class="form-control @error('email') is-invalid @enderror" name="email" id="email" style="width:97%; border: solid 1pt black; margin-bottom:10pt; background: white;">
+                        <input type="text" value="{{ old('email') }}" placeholder="Masukkan E-Mail" class="form-control @error('email') is-invalid @enderror" name="email" id="email" style="width:97%; border: solid 1pt black; margin-bottom:10pt; padding: 10px; background: white;">
                         <!-- error message untuk title -->
                                     @error('email')
                                         <div class="alert alert-danger mt-2">
@@ -56,10 +56,10 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                        <input type="password" value="{{ old('password') }}" placeholder="Isi Kolom" class="form-control @error('password') is-invalid @enderror" name="password" id="password" style="width:97%; border: solid 1pt black; margin-bottom:10pt; background: white;">
+                        <input type="password" value="{{ old('password') }}" placeholder="Masukkan Password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" style="width:97%; border: solid 1pt black; margin-bottom:10pt;padding: 10px; background: white;">
                     </div>
                     <div align='center'>
-                        <button type="submit" class="btn bg-gradient-dark">Login</button>
+                        <button type="submit" class="btn btn-custom btn-login">Login</button>
                     </div>
                 </form>
             @endguest
@@ -75,7 +75,7 @@
                     @csrf
                     <div align='center'>
                         <p class="font-weight-bold">Login as {{Auth::user()->name}}</p>
-                        <button type="submit" class="btn bg-gradient-primary">Logout</button>
+                        <button type="submit" class="btn btn-custom btn-logout">Logout</button>
                     </div>
                 </form>
             @endauth
@@ -86,6 +86,31 @@
     <style>
         * {
             box-sizing: border-box;
+        }
+
+        /* Button umum */
+        .btn-custom {
+            background: linear-gradient(135deg, #4A90E2, #357ABD); 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(135deg, #357ABD, #2C5AA0); /* lebih gelap pas hover */
+            transform: scale(1.05);
+        }
+        
+        .btn-logout {
+            background: linear-gradient(135deg, #dc3545, #c82333); 
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, #0250a8ff, #013064);
         }
 
         body {
