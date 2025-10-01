@@ -88,18 +88,6 @@
             box-sizing: border-box;
         }
 
-        /* Button umum */
-        .btn-custom {
-            background: linear-gradient(135deg, #4A90E2, #357ABD); 
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
-            cursor: pointer;
-        }
-
         .btn-custom:hover {
             background: linear-gradient(135deg, #357ABD, #2C5AA0); /* lebih gelap pas hover */
             transform: scale(1.05);
@@ -107,6 +95,7 @@
         
         .btn-logout {
             background: linear-gradient(135deg, #dc3545, #c82333); 
+            font-color: white;
         }
 
         .btn-login {
@@ -114,14 +103,16 @@
         }
 
         body {
+            background: linear-gradient(135deg, #013064, #ff7f7e);
+            background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            color: #032559;
+            color: #0B3D91;
             min-height: 100vh;
             animation: fadeIn 1.2s ease-in;
         }
-
+ 
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -175,7 +166,7 @@
             margin: 0;
             color: #032559;
         }
-
+        
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

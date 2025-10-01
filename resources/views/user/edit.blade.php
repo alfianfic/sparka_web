@@ -18,8 +18,8 @@
                             @method('PUT')
 
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" placeholder="Isi Kolom">
+                                <label class="font-weight-bold">Name</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" placeholder="Masukkan Nama">
 
                                 <!-- error message untuk title -->
                                 @error('name')
@@ -29,8 +29,8 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">email</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" placeholder="Isi Kolom">
+                                <label class="font-weight-bold">E-mail</label>
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" placeholder="Masukkan E-mail">
 
                                 <!-- error message untuk title -->
                                 @error('email')
@@ -40,8 +40,8 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">age</label>
-                                <input type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age',$user->age) }}" placeholder="Isi Kolom">
+                                <label class="font-weight-bold">Age</label>
+                                <input type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age',$user->age) }}" placeholder="Masukkan Usia">
 
                                 <!-- error message untuk title -->
                                 @error('age')
@@ -51,19 +51,19 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">gender</label>
-                                <input type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender',$user->gender) }}" placeholder="Isi Kolom">
-
-                                <!-- error messgender untuk title -->
-                                @error('gender')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                            <label class="font-weight-bold">Gender</label>
+                            <select class="form-control @error('gender') is-invalid @enderror" name="gender">
+                                <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                                <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                            </select>
+                            @error('gender')
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">weight</label>
-                                <input type="text" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ old('weight',$user->weight) }}" placeholder="Isi Kolom">
+                                <label class="font-weight-bold">Weight</label>
+                                <input type="text" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ old('weight',$user->weight) }}" placeholder="Masukkan Berat Badan (Hanya Angka)">
 
                                 <!-- error message untuk title -->
                                 @error('weight')
@@ -73,8 +73,8 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">height</label>
-                                <input type="text" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height', $user->height) }}" placeholder="Isi Kolom">
+                                <label class="font-weight-bold">Height</label>
+                                <input type="text" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height', $user->height) }}" placeholder="Masukkan Tinggi (Hanya Angka)">
 
                                 <!-- error message untuk title -->
                                 @error('height')
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">CO</label>
-                                <input type="text" class="form-control @error('CO') is-invalid @enderror" name="CO" value="{{ old('CO',$user->CO) }}" placeholder="Isi Kolom">
+                                <input type="text" class="form-control @error('CO') is-invalid @enderror" name="CO" value="{{ old('CO',$user->CO) }}" placeholder="Masukkan CO">
 
                                 <!-- error message untuk title -->
                                 @error('CO')
@@ -96,7 +96,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">FEV1</label>
-                                <input type="text" class="form-control @error('FEV1') is-invalid @enderror" name="FEV1" value="{{ old('FEV1',$user->FEV1) }}" placeholder="Isi Kolom">
+                                <input type="text" class="form-control @error('FEV1') is-invalid @enderror" name="FEV1" value="{{ old('FEV1',$user->FEV1) }}" placeholder="Masukkan FEV1">
 
                                 <!-- error message untuk title -->
                                 @error('FEV1')
@@ -107,7 +107,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">FEV1_max</label>
-                                <input type="text" class="form-control @error('FEV1_max') is-invalid @enderror" name="FEV1_max" value="{{ old('FEV1_max',$user->FEV1_max) }}" placeholder="Isi Kolom">
+                                <input type="text" class="form-control @error('FEV1_max') is-invalid @enderror" name="FEV1_max" value="{{ old('FEV1_max',$user->FEV1_max) }}" placeholder="Masukkan FEV1_max">
 
                                 <!-- error message untuk title -->
                                 @error('FEV1_max')
@@ -118,7 +118,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">FVC</label>
-                                <input type="text" class="form-control @error('FVC') is-invalid @enderror" name="FVC" value="{{ old('FVC',$user->FVC) }}" placeholder="Isi Kolom">
+                                <input type="text" class="form-control @error('FVC') is-invalid @enderror" name="FVC" value="{{ old('FVC',$user->FVC) }}" placeholder="Masukkan FVC">
 
                                 <!-- error messFVC untuk title -->
                                 @error('FVC')
@@ -129,7 +129,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">FVC_max</label>
-                                <input type="text" class="form-control @error('FVC_max') is-invalid @enderror" name="FVC_max" value="{{ old('FVC_max',$user->FVC_max) }}" placeholder="Isi Kolom">
+                                <input type="text" class="form-control @error('FVC_max') is-invalid @enderror" name="FVC_max" value="{{ old('FVC_max',$user->FVC_max) }}" placeholder="Masukkan FVC_max">
 
                                 <!-- error message untuk title -->
                                 @error('FVC_max')
@@ -139,8 +139,8 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">status</label>
-                                <input type="number" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status',$user->status) }}" placeholder="Isi Kolom">
+                                <label class="font-weight-bold">Status</label>
+                                <input type="number" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status',$user->status) }}" placeholder="Masukkan status">
 
                                 <!-- error messstatus untuk title -->
                                 @error('status')
@@ -150,8 +150,8 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">password</label>
-                                <input type="text" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Isi Kolom">
+                                <label class="font-weight-bold">Password</label>
+                                <input type="text" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukkan password">
 
                                 <!-- error messpassword untuk title -->
                                 @error('password')
@@ -174,8 +174,8 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-md btn-primary me-3">UPDATE</button>
-                            <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                            <button type="submit" class="btn save">UPDATE</button>
+                            <button type="reset" class="btn reset">RESET</button>
 
                         </form>
                     </div>
@@ -183,4 +183,80 @@
             </div>
         </div>
     </div>
+
+<style>
+     body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #013064, #ff7f7e);
+    background-attachment: fixed;
+    color: #0B3D91;
+  }
+
+  .reset {
+        background-color: #ff7f7e !important;
+        border-color: #ff7f7e !important;
+        color: white !important;
+        font-weight: bold;
+    }
+    .save {
+        background-color: #013064 !important; 
+        border-color: #013064 !important;
+        color: white !important;
+        font-weight: bold;
+    }
+
+    input.form-control,
+    select.form-control,
+    textarea.form-control {
+        background-color: #f0f0f0 !important;  
+        border-color: #ddd !important;
+        color: #001a4d !important;
+        padding: 10px !important;
+    }
+
+    input.form-control.filled,
+    select.form-control.filled,
+    textarea.form-control.filled {
+        background-color: #e9f1ff !important; 
+        border-color: #c1d4ff !important;
+    }
+
+    input.form-control:focus,
+    select.form-control:focus,
+    textarea.form-control:focus {
+        border-color: #80aaff !important;
+        box-shadow: none !important;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const fields = document.querySelectorAll(".form-control");
+
+        function checkFilled(field) {
+            if (field.value.trim() !== "") {
+                field.classList.add("filled");
+            } else {
+                field.classList.remove("filled");
+            }
+        }
+
+        // Cek semua field saat halaman dibuka (untuk data old() atau edit form)
+        fields.forEach(checkFilled);
+
+        // Update class saat ada input
+        fields.forEach(field => {
+            field.addEventListener("input", () => checkFilled(field));
+        });
+
+        // Reset kembali ke abu-abu saat tombol reset ditekan
+        document.querySelector("form").addEventListener("reset", () => {
+            setTimeout(() => {
+                fields.forEach(field => field.classList.remove("filled"));
+            }, 0);
+        });
+    });
+</script>
+
 @endsection

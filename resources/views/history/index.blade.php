@@ -11,7 +11,7 @@
         </div>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
-                <a href="{{ route('history.create') }}" class="btn btn-md btn-success mb-3">ADD History</a>
+                <a href="{{ route('history.create') }}" class="btn btn-md btn-success mb-3">Add History</a>
 
                 <table class="table align-items-center mb-0">
                     <thead>
@@ -67,4 +67,13 @@
     </div>
 </div>
 
+<style>
+    body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #013064, #ff7f7e);
+    background-attachment: fixed;
+    color: #0B3D91;
+  }
+</style>
 @endsection

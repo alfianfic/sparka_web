@@ -82,11 +82,23 @@
                                 <label class="font-weight-bold">Status</label>
                                 <select name="Status" class="form-control @error('Status     ') is-invalid @enderror">
                                     <option value="">-- Pilih Status --</option>
-                                        <option value="Aman">
-                                            Aman
+                                        <option value="Normal">
+                                            Normal
                                         </option>
+                                        <option value="Gejala Sesak Nafas">
+                                            Gejala Sesak Nafas
+                                        </option>
+                                         </option>
+                                        <option value="Sesak Nafas Ringan">
+                                            Sesak Nafas Ringan
+                                        </option>
+                                         </option>
                                         <option value="Gejala PPOK Ringan">
                                             Gejala PPOK Ringan
+                                        </option>
+                                         </option>
+                                        <option value="Dugaan PPOK">
+                                            Dugaan PPOK
                                         </option>
                                 </select>
 
@@ -104,39 +116,6 @@
             </div>
         </div>
     </div>
- <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-lg-start font-footer">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with
-                  <!-- <i class="fa fa-heart"></i> by -->
-                <a href="https://www.creative-tim.com" class="font-weight-bold ; font-footer" target="_blank">SparkA Tim</a>
-                | Your Breath Our Priority.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link font-footer" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link font-footer " target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link font-footer " target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 font-footer" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
     <style>
     body {
     margin: 0;
@@ -146,10 +125,6 @@
     color: #0B3D91;
   }
 
-   .font-footer{
-    color: #f9f9f9;
-    font-weight: bold;
-  }
    .reset {
         background-color: #ff7f7e !important;
         border-color: #ff7f7e !important;
@@ -186,13 +161,6 @@
         box-shadow: none !important;
     }
 
-    
-  .font-footer{
-    color: #f9f9f9;
-  }
-    .font-footer:hover {
-      color: #ffffff !important;
-  }
 </style>
 
 <script>
@@ -222,5 +190,7 @@
             }, 0);
         });
     });
+
+    
     </script>
  @endsection

@@ -65,40 +65,6 @@
         }, 1000);
     });
 </script>
- <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-lg-start font-footer">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with
-                  <!-- <i class="fa fa-heart"></i> by -->
-                <a href="https://www.creative-tim.com" class="font-weight-bold ; font-footer" target="_blank">SparkA Tim</a>
-                | Your Breath Our Priority.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link font-footer" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link font-footer " target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link font-footer " target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 font-footer" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-
 
 <style>
     body {
@@ -107,11 +73,6 @@
     background: linear-gradient(135deg, #013064, #ff7f7e);
     background-attachment: fixed;
     color: #0B3D91;
-  }
-
-   .font-footer{
-    color: #f9f9f9;
-    font-weight: bold;
   }
 
   .box{
@@ -128,6 +89,43 @@
     border: 1px solid #ccc;
 }
 
-  
+/* ====== RAPIKAN TEKS DALAM TABEL ====== */
+#history-table thead th,
+#history-table tbody td {
+    text-align: center;         /* Biar rata tengah semua */
+    vertical-align: middle;     /* Biar sejajar secara vertikal */
+    padding: 10px 5px !important;  /* Sesuaikan jarak agar rapi */
+    font-size: 14px;            /* Perkecil sedikit agar konsisten */
+}
+
+/* ====== KECILKAN PAGINATION ====== */
+.dataTables_paginate .paginate_button {
+    padding: 2px 8px !important;
+    margin: 0 2px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: #013064 !important; 
+    color: white !important;
+    border: none !important;
+}
+
+.dataTables_info {
+    font-size: 12px !important;
+    padding-left: 15px;
+}
+
+/* ====== RAPIKAN SEARCH BAR ====== */
+.dataTables_filter input {
+    padding: 6px 10px !important;
+    font-size: 13px;
+}
+
+#history-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
 </style>
 @endsection
