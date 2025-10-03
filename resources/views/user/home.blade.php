@@ -93,13 +93,17 @@
             transform: scale(1.05);
         }
         
-        .btn-logout {
+        .btn-logout,
+        .btn-logout:hover,
+        .btn-logout:focus {
             background: linear-gradient(135deg, #dc3545, #c82333); 
-            font-color: white;
+            color: white !important;
+            font-weight: bold;
         }
 
         .btn-login {
             background: linear-gradient(135deg, #0250a8ff, #013064);
+            color: white !important; 
         }
 
         body {

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
-  <link rel="icon" type="image/png" href="{{asset('img/SparkA.jpg')}}">
+  <link rel="icon" type="image/png" href="{{asset('img/SparkA.png')}}">
   <title>
     ADMIN SPARKA
   </title>
@@ -138,7 +138,7 @@
          </div>
   </main>
 
-  <div class="fixed-plugin">
+  <!--<div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="material-symbols-rounded py-2">settings</i>
     </a>
@@ -153,11 +153,11 @@
             <i class="material-symbols-rounded">clear</i>
           </button>
         </div>
-        <!-- End Toggle Button -->
+        End Toggle Button 
       </div>
       <hr class="horizontal dark my-1">
       <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
+        <!-- Sidebar Backgrounds 
         <div>
           <h6 class="mb-0">Sidebar Colors</h6>
         </div>
@@ -171,7 +171,7 @@
             <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
           </div>
         </a>
-        <!-- Sidenav Type -->
+        Sidenav Type 
         <div class="mt-3">
           <h6 class="mb-0">Sidenav Type</h6>
           <p class="text-sm">Choose between different sidenav types.</p>
@@ -182,14 +182,14 @@
           <button class="btn bg-gradient-dark px-3 mb-2  active ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
         </div>
         <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="mt-3 d-flex">
+        Navbar Fixed -->
+       <!-- <div class="mt-3 d-flex">
           <h6 class="mb-0">Navbar Fixed</h6>
           <div class="form-check form-switch ps-0 ms-auto my-auto">
             <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
           </div>
         </div>
-        <hr class="horizontal dark my-3">
+       <hr class="horizontal dark my-3">
         <div class="mt-2 d-flex">
           <h6 class="mb-0">Light / Dark</h6>
           <div class="form-check form-switch ps-0 ms-auto my-auto">
@@ -199,13 +199,13 @@
         <hr class="horizontal dark my-sm-4">
       </div>
     </div>
-  </div>
+  </div> -->
 
 
   <!--   Core JS Files   -->
   <script src="{{asset('js/core/popper.min.js')}}"></script>
   <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
-  <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+  <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script> >
   <script src="{{asset('js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
@@ -219,7 +219,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.min.js?v=3.2.0"></script>
+  <script src="assets/js/material-dashboard.min.js?v=3.2.0"></script> 
 <style>
   .font-footer{
     color: #f9f9f9;
@@ -227,6 +227,8 @@
     .font-footer:hover {
       color: #ffffff !important;
   }
+
+  
 </style>
 
 </body>
