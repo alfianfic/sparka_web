@@ -133,7 +133,9 @@
             /* max-width: 1000px; */
             margin: auto;
             padding: 2rem;
-            background: url('gambar/bgweb12.png') no-repeat center center fixed;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
+                url('img/kampus-polinema.jpg') no-repeat center center fixed;
             background-size: cover;
 
         }
