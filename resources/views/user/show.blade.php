@@ -19,7 +19,8 @@
     padding: 2rem;
   }
 
-  .card {
+.card {
+    position: relative;
     background-color: #CBDCEB;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -29,6 +30,25 @@
     flex-direction: row;
     gap: 2rem;
     padding: 2rem;
+    overflow: hidden;
+  }
+
+  /* ✅ Gambar transparan di tengah card */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("{{ asset('img/SparkA-No-BG.png') }}") no-repeat center center;
+    background-size: 50%; /* proporsional terhadap ukuran card */
+    opacity: 0.15; /* transparansi lembut */
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* supaya isi card tetap di atas gambar */
+  .card > * {
+    position: relative;
+    z-index: 1;
   }
 
   .left, .right {

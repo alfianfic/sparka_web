@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
-  <link rel="icon" type="image/png" href="{{asset('img/SparkA.png')}}">
+  <link rel="icon" type="image/png" href="{{asset('img/SparkA-No-BG.png')}}">
   <title>
     ADMIN SPARKA
   </title>
@@ -27,7 +27,7 @@
     <div class="sidenav-header ">
       <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand px-4 py-3 m-0" href="/" >
-        <img src="{{asset('img/SparkA.jpg')}}" class="navbar-brand-img" width="26" height="26" alt="main_logo">
+        <img src="{{asset('img/SparkA-No-BG.png')}}" class="navbar-brand-img" width="26" height="26" alt="main_logo">
         <span class="ms-1 text-sm text-dark">SparkA Website</span>
       </a>
     </div>
@@ -157,7 +157,7 @@
       </div>
       <hr class="horizontal dark my-1">
       <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds 
+        Sidebar Backgrounds 
         <div>
           <h6 class="mb-0">Sidebar Colors</h6>
         </div>
