@@ -43,7 +43,7 @@
         <li class="nav-item ">
           <a class="nav-link active bg-gradient-dark text-white" href="/users">
             <i class="material-symbols-rounded opacity-5"></i>
-            <span class="nav-link-text ms-1">Pasien</span>
+            <span class="nav-link-text ms-1">List Pasien</span>
           </a>
         </li>
       </ul>

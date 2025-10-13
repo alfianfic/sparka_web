@@ -5,6 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
+
 <div class="col-12">
     <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -128,4 +129,6 @@
 }
 
 </style>
+
+
 @endsection

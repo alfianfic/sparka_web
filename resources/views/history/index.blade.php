@@ -76,4 +76,5 @@
     color: #0B3D91;
   }
 </style>
+
 @endsection

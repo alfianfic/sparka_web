@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+
 <style>
   body {
     margin: 0;
@@ -216,6 +217,27 @@
   console.log(CO);
   // Jalankan pertama kali saat halaman dimuat
   // $(document).ready(fetchData);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function fetchData() {
+    $.ajax({
+      url: '/user/user-data/{{$user->id}}',
+      method: 'GET',
+      success: function(data) {
+        $('#FEV1').text(data.FEV1 + ' lt/m');
+        $('#FVC').text(data.FVC + ' lt/m');
+        $('#CO').text(data.CO + ' ppm');
+        $('#FEV1FVC').text(data.FEV1_FVC + '%');
+      },
+      error: function() {
+        console.error('Gagal mengambil data');
+      }
+    });
+  }
+
+  setInterval(fetchData, 1000);
 </script>
 
 @endsection
